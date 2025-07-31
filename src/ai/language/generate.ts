@@ -1,6 +1,11 @@
 import { generateText as generateTextAi, streamText as streamTextAi } from "ai";
-
 import { openrouter } from "@openrouter/ai-sdk-provider";
+
+// Add headers directly to the OpenRouter client
+const headers = {
+  "HTTP-Referer": "https://toolkit.dev",
+  "X-Title": "Toolkit.dev",
+};
 
 export const generateText = (
   model: `${string}/${string}`,
@@ -8,6 +13,7 @@ export const generateText = (
 ) => {
   return generateTextAi({
     model: openrouter(model),
+    headers,
     ...params,
   });
 };
@@ -18,6 +24,7 @@ export const streamText = (
 ) => {
   return streamTextAi({
     model: openrouter(model),
+    headers,
     ...params,
   });
 };
