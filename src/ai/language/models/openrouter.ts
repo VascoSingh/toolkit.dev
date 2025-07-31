@@ -5,12 +5,15 @@ import {
 
 const openRouterModelData: Omit<LanguageModel, "provider">[] = [
   {
-    name: "Auto",
+    name: "Auto (Best Model)",
     modelId: "auto",
     description:
       "Automatically selects the best model for your task using NotDiamond, with access to all model capabilities",
     capabilities: [
       LanguageModelCapability.Vision,
+      LanguageModelCapability.WebSearch,
+      LanguageModelCapability.Reasoning,
+      LanguageModelCapability.Pdf,
       LanguageModelCapability.ToolCalling,
     ],
     bestFor: [
